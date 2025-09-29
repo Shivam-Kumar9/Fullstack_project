@@ -30,14 +30,14 @@ noteRouter.post("/create", async (req, res) => {
 
 noteRouter.get("/", async (req, res) => {
   const userId = req.user._id;
-  console.log("objectId", userId); //---
+  console.log("objectId", userId); //--- 
   try {
     const notes = await NoteModel.find({
       userID: userId,
     });
     console.log(notes);
     res.status(200).json({ notes });
-  } catch (error) {
+  } catch (error) {  
     res.status(500).json({
       message: "Error fetching notes",
       error: error.message,
